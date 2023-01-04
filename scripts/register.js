@@ -35,15 +35,13 @@ let inputOwner = document.getElementById("txtOwner");
 let inputPhone = document.getElementById("txtPhone");
 
 function register(){
-    //get the values from the html
-    console.log(inputName.value,inputAge.value,inputGender.value,inputBreed.value,inputService.value,inputOwner.value,inputPhone.value);
     //create a new object
     let newPet= new Pet(inputName.value,inputAge.value,inputGender.value,inputBreed.value,inputService.value,inputOwner.value,inputPhone.value);
     //push it to the array
     petSalon.pets.push(newPet);
     //display the object on the console
-    console.log(newPet);
-    console.log(petSalon.pets);
+    displayPetCards();
+    displayInfo();
     clearForm();
 }
 
@@ -57,15 +55,16 @@ function clearForm(){
     inputPhone.value = "";
 }
 
+
+
 function init(){
     // main
     let scooby = new Pet("Scooby", 50, "Male", "Dane", "Grooming", "Shaggy", "555-555-555"); //creating the object
     let bobby = new Pet("Bobby", 2, "Male", "Chihuahua", "Shower", "Brayan", "664-553-123");
     let charlotte = new Pet("Charlotte", 4, "Female", "Golden Retriever", "Hair cut", "Kevin", "624-423-654");
     petSalon.pets.push(scooby, bobby, charlotte); //adding the pet to the array
-    console.log(petSalon.pets[0].name);
-    console.log(petSalon.pets[1].name);
-
+    displayInfo();
+    displayPetCards();
 
 }
 
