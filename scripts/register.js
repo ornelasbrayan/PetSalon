@@ -31,12 +31,14 @@ let inputAge = document.getElementById("txtAge");
 let inputGender = document.getElementById("txtGender");
 let inputBreed = document.getElementById("txtBreed");
 let inputService = document.getElementById("txtService");
+let inputOwner = document.getElementById("txtOwner");
+let inputPhone = document.getElementById("txtPhone");
 
 function register(){
     //get the values from the html
-    console.log(inputName.value,inputAge.value,inputGender.value,inputBreed.value,inputService.value);
+    console.log(inputName.value,inputAge.value,inputGender.value,inputBreed.value,inputService.value,inputOwner.value,inputPhone.value);
     //create a new object
-    let newPet= new Pet(inputName.value,inputAge.value,inputGender.value,inputBreed.value,inputService.value);
+    let newPet= new Pet(inputName.value,inputAge.value,inputGender.value,inputBreed.value,inputService.value,inputOwner.value,inputPhone.value);
     //push it to the array
     petSalon.pets.push(newPet);
     //display the object on the console
@@ -51,6 +53,8 @@ function clearForm(){
     inputGender.value = "";
     inputBreed.value = "";
     inputService.value = "";
+    inputOwner.value = "";
+    inputPhone.value = "";
 }
 
 function init(){
