@@ -26,11 +26,31 @@ function Pet(name,age,gender,breed,service,owner,phone){
 
 }
 
+let inputName = document.getElementById("txtName");
+let inputAge = document.getElementById("txtAge");
+let inputGender = document.getElementById("txtGender");
+let inputBreed = document.getElementById("txtBreed");
+let inputService = document.getElementById("txtService");
 
+function register(){
+    //get the values from the html
+    console.log(inputName.value,inputAge.value,inputGender.value,inputBreed.value,inputService.value);
+    //create a new object
+    let newPet= new Pet(inputName.value,inputAge.value,inputGender.value,inputBreed.value,inputService.value);
+    //push it to the array
+    petSalon.pets.push(newPet);
+    //display the object on the console
+    console.log(newPet);
+    console.log(petSalon.pets);
+    clearForm();
+}
 
-
-function displayInfo(){
-
+function clearForm(){
+    inputName.value = "";
+    inputAge.value = "";
+    inputGender.value = "";
+    inputBreed.value = "";
+    inputService.value = "";
 }
 
 function init(){
