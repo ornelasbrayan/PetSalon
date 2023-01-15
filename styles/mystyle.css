@@ -1,25 +1,84 @@
-#pets{
-    display: grid;
-    grid-template-columns: 33% 33% 33%;
-    column-gap: 5px;
+.alert-error{
+    background-color: rgb(241, 216, 216);
+    border: 1px solid rgb(109, 4, 4);
+}
 
+header{
+    padding: 30px;
+    text-align: center;
+    border-bottom: 5px solid black;
+    border-top: 5px solid black;
+}
+
+.container{
     
 }
-.petCard{
-    background-color: lightblue;
-    border: 1px solid gray;
-    padding: 10px;
-    margin: 10px;
+
+table{
+    margin-top: 30px;
+    background-color: lightgray;
+    text-align: center;
 }
 
-/* .registerTable{
-    display: flex;
-    background-color: lightgray;
+ul{
     padding: 10px;
-    margin: 10px;
-    border: 1px solid black;
-} */
+}
 
-.alert-error{
-    border: 1px solid red;
+div.container{
+    padding-top: 15px;
+    border-top: 5px solid black;
+    border-bottom: 5px solid black;
+
+}
+
+.services{
+    padding: 15px;
+
+}
+
+img{
+    border: 4px solid black;
+    margin: 15px;
+    border-radius: 20px;
+}
+
+.size{
+    
+}
+
+label{
+    font-weight: bold;
+}
+
+.dogText{
+    text-align: center;
+}
+
+.nav{
+    background-color: rgb(231, 230, 230);
+}
+
+.textBanner{
+    font-size: 50px;
+    font-family: 'Times New Roman', Times, serif;
+    
+}
+
+.textInfo{
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.textRandom{
+    font-size: 20px;
+}
+
+.divAbout{
+    background-color: rgb(231, 230, 230);
+    width: 500px;
+    margin-top: 50px;
+}
+
+.map{
+    text-align: center;
 }

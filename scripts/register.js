@@ -16,7 +16,7 @@ let petSalon={
 }
 let c=0;
 // constructor
-function Pet(name,age,gender,breed,service,owner,phone){
+function Pet(name,age,gender,breed,service,owner,phone,payment){
     this.name = name;
     this.age = age;
     this.gender= gender;
@@ -24,6 +24,7 @@ function Pet(name,age,gender,breed,service,owner,phone){
     this.service = service;
     this.ownername = owner;
     this.contactPhone = phone;
+    this.payment = payment;
     this.id=c++;
 
 }
@@ -35,6 +36,7 @@ let inputBreed = document.getElementById("txtBreed");
 let inputService = document.getElementById("txtService");
 let inputOwner = document.getElementById("txtOwner");
 let inputPhone = document.getElementById("txtPhone");
+let inputPayment = document.getElementById("txtPayment");
 
 function validatePet(thePet){
     let validation=true;
@@ -62,23 +64,24 @@ function validatePet(thePet){
     }else{
         inputBreed.classList.remove("alert-error");
     }
+    if(thePet.payment==""){
+        validation=false;
+        inputPayment.classList.add("alert-error");
+    }else{
+        inputPayment.classList.remove("alert-error");
+    }
     
     return validation;
 
 }
 
 function register(){
-    //create a new object
-    let newPet= new Pet(inputName.value,inputAge.value,inputGender.value,inputBreed.value,inputService.value,inputOwner.value,inputPhone.value);
+    let newPet= new Pet(inputName.value,inputAge.value,inputGender.value,inputBreed.value,inputService.value,inputOwner.value,inputPhone.value,inputPayment.value);
     if(validatePet(newPet)==true){
-        // the pet was valid
-        //push it to the array
         petSalon.pets.push(newPet);
-        //display the object on the console
-        displayPetCards();
         displayInfo();
         clearForm();
-        // displayTable();
+        displayTable();
 
     }
     
@@ -87,17 +90,17 @@ function register(){
 function deletePet(id){
     console.log("deleting pet " + id);
     let deleteIndex;
-    //travel the array
     for(let i=0;i<petSalon.pets.length;i++){
         let pet=petSalon.pets[i];
-        if(id==pet.id){// find the pet
+        if(id==pet.id){
             deleteIndex=i;
         }
 
     }
-    document.getElementById(id).remove();// detele the pet from the html
-    petSalon.pets.splice(deleteIndex,1);// delete the pet from the array 
-    displayInfo();// update info
+    document.getElementById(id).remove();
+    petSalon.pets.splice(deleteIndex,1); 
+    displayInfo();
+    displayTable();
         
 }
 
@@ -109,18 +112,17 @@ function clearForm(){
     inputService.value = "";
     inputOwner.value = "";
     inputPhone.value = "";
+    inputPayment.value = "";
 }
 
 
 
 function init(){
-    // main
-    let scooby = new Pet("Scooby", 50, "Male", "Dane", "Grooming", "Shaggy", "555-555-555"); //creating the object
-    let bobby = new Pet("Bobby", 2, "Male", "Chihuahua", "Shower", "Brayan", "664-553-123");
-    let charlotte = new Pet("Charlotte", 4, "Female", "Golden Retriever", "Hair cut", "Kevin", "624-423-654");
-    petSalon.pets.push(scooby, bobby, charlotte); //adding the pet to the array
+    let scooby = new Pet("Scooby", 50, "Male", "Dane", "Hair Cut", "Shaggy", "555-555-555","Credit card"); 
+    let bobby = new Pet("Bobby", 2, "Male", "Chihuahua", "Shower", "Brayan", "664-553-123","Cash");
+    let charlotte = new Pet("Charlotte", 4, "Female", "Golden Retriever", "Hair cut", "Kevin", "624-423-654","Cash");
+    petSalon.pets.push(scooby, bobby, charlotte); 
     displayInfo();
-    displayPetCards();
     displayTable();
 
 }
